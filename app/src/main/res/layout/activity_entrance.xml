@@ -34,7 +34,7 @@
         android:textSize="20sp"
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="35dp"
-        android:backgroundTint="#4C3520"
+        android:backgroundTint="@color/main_color"
         android:text="@string/start" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
