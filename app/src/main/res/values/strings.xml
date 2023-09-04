@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MultiplyMaster</string>
     <string name="start">Start</string>
+    <string name="toolbar_title">Выберите предмет для изучения</string>
 </resources>
