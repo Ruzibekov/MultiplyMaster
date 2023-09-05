@@ -16,6 +16,7 @@ class LearnActivity : AppCompatActivity() {
     private var rvLearn: RecyclerView? = null
     private var btnStart: Button? = null
     private var adapter = LearnAdapter()
+    private var intentData: Int = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn)
@@ -35,7 +36,9 @@ class LearnActivity : AppCompatActivity() {
 
     private fun initData(){
 
-        adapter.selectedNumber = intent.getIntExtra("data",1)
+        intentData = intent.getIntExtra("data",1)
+
+        adapter.selectedNumber = intentData
 
         val list =ArrayList<Int>()
         for (i in 1..10){
@@ -54,6 +57,7 @@ class LearnActivity : AppCompatActivity() {
 
         btnStart?.setOnClickListener {
             val intent = Intent(this, GameActivity::class.java)
+            intent.putExtra("intent_data",intentData)
             startActivity(intent)
         }
     }
