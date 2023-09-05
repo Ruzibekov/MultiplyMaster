@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:text="2 x 2 = 4"
+    android:id="@+id/tv_learn"
+    android:textColor="@color/white"
+    android:padding="8dp"
+    android:textSize="20sp"
+    style="@style/textStyle.bold" />
