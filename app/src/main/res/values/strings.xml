@@ -4,4 +4,5 @@
     <string name="toolbar_title">Выберите предмет для изучения</string>
     <string name="learn_table">Изучите таблицу</string>
     <string name="start_multiply">Начать умножение</string>
+    <string name="game_toolbar">Интересная игра</string>
 </resources>
