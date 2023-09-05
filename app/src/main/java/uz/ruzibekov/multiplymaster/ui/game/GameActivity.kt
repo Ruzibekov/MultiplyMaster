@@ -1,11 +1,14 @@
 package uz.ruzibekov.multiplymaster.ui.game
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import uz.ruzibekov.multiplymaster.R
 import kotlin.random.Random
@@ -91,23 +94,40 @@ class GameActivity : AppCompatActivity() {
 
         if (text == listAnswer[counter - 1].toString()) {
             correctAnswers += 1
+            tvCorrect?.text = correctAnswers.toString()
         } else {
             wrongAnswers += 1
+            tvWrong?.text = wrongAnswers.toString()
         }
 
         if (counter < 10) {
             counter = counter.plus(1)
             tvCounter?.text = "$counter / 10"
             tvQuestion?.text = listQuestions[counter - 1]
-            tvCorrect?.text = correctAnswers.toString()
-            tvWrong?.text = wrongAnswers.toString()
         } else {
             openDialog()
         }
     }
 
     private fun openDialog() {
-        Toast.makeText(this, "ssss", Toast.LENGTH_SHORT).show()
+        val dialog = AlertDialog.Builder(this).create()
+        val view = layoutInflater.inflate(R.layout.dialog_result, null)
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val ratingBar = view.findViewById<RatingBar>(R.id.ratingBar)
+        val btnClose = view.findViewById<Button>(R.id.btn_close)
+
+        ratingBar.rating = (correctAnswers / 2).toFloat()
+
+        dialog.setView(view)
+        dialog.show()
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+            finish()
+        }
+
     }
 
     @SuppressLint("SetTextI18n")
